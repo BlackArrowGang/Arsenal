@@ -13,7 +13,7 @@
 
 ## **About Arsenal**
 
-Leverage Arsenal's powerful platform tools to optimize software development lifecycle. Streamline workflows, enhance collaboration, and achieve efficient software delivery. Partner with us for increased productivity and success.
+Leverage Arsenal's powerful platform tools to optimize software development lifecycle. Streamline workflows, enhance collaboration, and achieve efficient software delivery. Hire us to set it up for you and make your life easier.
 
 ## **Usage**
 Each project/tool within Arsenal has its own dedicated directory containing relevant documentation and code. Before using a specific tool, refer to the corresponding directory for detailed information on the solution that it offers.
@@ -31,4 +31,4 @@ The quiver folder in this repository serves as a collection of various platform 
     - [TODO]
 
 ## **Contributing**
-Contributions to Arsenal are more than welcome! They  can range from bug fixes and feature enhancements to entirely new projects or tools.
+Contributions to Arsenal are more than welcome! They can range from bug fixes and feature enhancements to entirely new projects or tools.
