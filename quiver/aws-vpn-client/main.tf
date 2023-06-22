@@ -34,8 +34,8 @@ module "security_group_networks" {
     #Allow access from vpn to rds or other resource inside private subnet
     egress_with_self = [
         {
-            from_port = 5432
-            to_port   = 5432
+            from_port = "REPLACE WITH DESIRED PORT"
+            to_port   = "REPLACE WITH DESIRED PORT"
             protocol  = 6
             self      = true
         }

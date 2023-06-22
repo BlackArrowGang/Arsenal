@@ -21,7 +21,7 @@ The AWS VPN setup can be utilized in various scenarios, including:
 2. Security Group Modules:
    - Creates security group modules with specific configurations:
      - "security_group" allows inbound UDP traffic on port 443 from all IP ranges.
-     - "security_group_networks" allows all traffic between networks within the VPC and outbound TCP traffic on port 5432 to itself.
+     - "security_group_networks" allows all traffic between networks within the VPC and outbound TCP traffic on the desired port to itself.
 
 3. Client VPN Configuration:
    - Configures an EC2 client VPN:
@@ -39,4 +39,4 @@ If you encounter any issues or have questions related to this AWS VPN setup with
 
 To get started, you can visit our website [blackarrowgang.com](https://blackarrowgang.com) to explore our services and schedule a meeting with our team. We are committed to providing you with the necessary support and guidance to ensure a successful implementation of your VPN infrastructure.
 
-And dont forget to checkout our youtube channel [Black Arrow Gang](https://www.youtube.com/@blackarrowgang3373), where we showcase the functionality of this services. 
+And dont forget to checkout our youtube channel [Black Arrow Gang](https://www.youtube.com/@blackarrowgang3373), where we will showcase the functionality of this services in the future. 
