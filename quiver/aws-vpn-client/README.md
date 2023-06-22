@@ -16,7 +16,7 @@ The AWS VPN setup can be utilized in various scenarios, including:
 
 ## **How It Works**
 1. Provider Configuration:
-   - Configures the AWS provider with the "default" profile and "us-east-2" region.
+   - Configures the AWS provider with your default credentials and desired region.
 
 2. Security Group Modules:
    - Creates security group modules with specific configurations:
@@ -35,8 +35,13 @@ The AWS VPN setup can be utilized in various scenarios, including:
    - Includes two private subnets.
 
 ## **Support**
-If you encounter any issues or have questions related to this AWS VPN setup with Terraform, or if you need assistance setting up the VPN or any other related services, we can do it for you. 
+If you encounter any issues or have questions related to this AWS VPN setup with Terraform, or need assistance setting up the VPN or any other related services, Hire us and we can do it for you. 
 
 To get started, you can visit our website [blackarrowgang.com](https://blackarrowgang.com) to explore our services and schedule a meeting with our team. We are committed to providing you with the necessary support and guidance to ensure a successful implementation of your VPN infrastructure.
 
-And dont forget to checkout our youtube channel [Black Arrow Gang](https://www.youtube.com/@blackarrowgang3373), where we will showcase the functionality of this services in the future. 
+Dont forget to checkout our youtube channel [Black Arrow Gang](https://www.youtube.com/@blackarrowgang3373), where we will showcase the functionality of this services in the future. 
+
+And if you are feeling generous you can go ahead and buy us a cup a coffee.
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://blackarrowgang.com)
+
