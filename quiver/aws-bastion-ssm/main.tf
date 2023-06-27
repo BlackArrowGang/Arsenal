@@ -9,9 +9,6 @@ locals {
   ami_id          = "ami-01107263728f3bef4"  # Specify the ID of the AMI
   instance_type   = "t2.micro"  # Specify the type of the EC2 instance
   ec2_tag_name    = "Bastion EC2" # Specify a name tag for the EC2 instance
-  #database
-  create_db       = "True"
-  db_name         = "postgres"
 }
 
 # Provider info
@@ -20,14 +17,19 @@ provider "aws" {
   profile = local.aws_profile_name 
 }
 
-module "vpc" {
-  source  = "terraform-aws-modules/vpc/aws"
-  version = "5.0.0"
-  name    = local.vpc_name  
-  cidr    = local.vpc_cidr_block 
-  azs              = ["${local.aws_region}a", "${local.aws_region}b"]  # Specify the availability zones for the VPC
-  private_subnets  = [cidrsubnet(local.vpc_cidr_block, 8, 1), cidrsubnet(local.vpc_cidr_block, 8, 2)]  # Define the private subnets within the VPC
+# Get default VPC
+data "aws_vpc" "default" {
+  default = true
 }
+
+# module "vpc" {
+#   source  = "terraform-aws-modules/vpc/aws"
+#   version = "5.0.0"
+#   name    = local.vpc_name  
+#   cidr    = local.vpc_cidr_block 
+#   azs              = ["${local.aws_region}a", "${local.aws_region}b"]  # Specify the availability zones for the VPC
+#   private_subnets  = [cidrsubnet(local.vpc_cidr_block, 8, 1), cidrsubnet(local.vpc_cidr_block, 8, 2)]  # Define the private subnets within the VPC
+# }
 
 # Create EC2 instance with role and security groups
 module "ec2_instance" {
@@ -37,7 +39,6 @@ module "ec2_instance" {
   tags = {
     Name                  = local.ec2_tag_name 
   }
-  subnet_id               = element(module.vpc.private_subnets, 0)  # Use the first private subnet within the VPC
   vpc_security_group_ids  = [
     module.security_group_bastion_rds.security_group_id,
     module.security_group_aws_internal_tools.security_group_id
@@ -51,7 +52,7 @@ module "security_group_bastion_rds" {
   source        = "terraform-aws-modules/security-group/aws"
   name          = "BastionRDS"  
   description   = "Two-way communication between Bastion and RDS"  
-  vpc_id        = module.vpc.vpc_id  
+  vpc_id        = data.aws_vpc.default.id
 
   ingress_with_self = [
     {
@@ -76,7 +77,7 @@ module "security_group_aws_internal_tools" {
   source        = "terraform-aws-modules/security-group/aws"
   name          = "AWS Internal Tools"  # Provide a name for the security group
   description   = "Allow connection from outside to bastion using AWS SSM"  # Describe the purpose of the security group
-  vpc_id        = module.vpc.vpc_id  # Use the VPC ID from the VPC module
+  vpc_id        = data.aws_vpc.default.id  # Use the VPC ID from the VPC module
 
   egress_with_cidr_blocks = [
     {
