@@ -79,9 +79,10 @@ Steps:
 ```bash
     aws ssm start-session \
         --target <instance_id> \
-        --document-name AWS-StartPortForwardingSession \
-        --parameters '{"portNumber":["<host_port>"], "localPortNumber":["<machine_port>"]}'
+        --document-name AWS-StartPortForwardingSessionToRemoteHost \
+        --parameters '{"host":["<resource_endpoint|resource_ip>"], "portNumber":["<host_port>"], "localPortNumber":["<machine_port>"]}'
 ```
+
 
 instance_id: The instance id of the EC2 you want to establish a session with (e.g. i-0123456789abcdef0)
 
