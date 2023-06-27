@@ -1,14 +1,14 @@
-# **Highly Scalable Database Cluster**
+# **Scalable and Efficient: Terraform-driven AWS RDS Serverless Cluster**
 
 ## **Description**
-This repository provides Terraform code for setting up an AWS RDS Aurora database cluster. It automates the configuration of a scalable and highly available database solution, including VPC, subnets, security groups, and IAM roles. Enjoy the benefits of Aurora's performance and reliability while maintaining control over access and security.
+This repository provides Terraform code for setting up an Serverless database cluster on AWS. It automates the configuration of a scalable and highly available database solution, including VPC, subnets, security groups, and VPN access. Enjoy the benefits of Aurora's performance and reliability while maintaining control over access and security.
 
 ## **Use Cases**
 The AWS RDS Aurora database cluster setup can be utilized in various scenarios, including:
 
-1. **Highly Available Applications**: Deploying an RDS Aurora database cluster ensures high availability for your applications. By leveraging automatic replication and failover capabilities, you can maintain uninterrupted access to your database even in the event of a failure.
+1.  **Effortless Scalability for Startups**: Startups effortlessly scale their databases with AWS RDS Aurora and Terraform. Automatic scaling handles unpredictable growth, while streamlined resource management and cost-effective scaling optimize operations. Terraform simplifies provisioning and configuration, enabling startups to establish reliable, scalable infrastructure for hassle-free growth.
 
-2. **Scalable Workloads**: RDS Aurora allows you to easily scale your database resources as your workload grows. With features such as automatic scaling and read replicas, you can handle increasing traffic and demand without compromising performance.
+2. **Highly Available Applications**: Deploying an RDS Aurora database cluster ensures high availability for your applications. By leveraging automatic replication and failover capabilities, you can maintain uninterrupted access to your database even in the event of a failure.
 
 3. **Multi-Region Data Replication**: RDS Aurora supports cross-region replication, enabling you to replicate your database across multiple AWS regions. This provides disaster recovery capabilities and allows you to serve your customers from different geographical locations with low latency.
 
