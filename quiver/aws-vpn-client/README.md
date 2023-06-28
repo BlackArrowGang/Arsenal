@@ -1,3 +1,4 @@
+<!-- 
 ---
 type: "post"
 title: "Secure Access Made Simple: Terraform-driven AWS Client VPN"
@@ -8,6 +9,7 @@ time: "1 min read"
 description: "Discover how to effortlessly establish secure network connectivity and access resources within your AWS Virtual Private Cloud (VPC) using Terraform."
 url: "/services/aws-vpn-client"
 ---
+-->
 
 # **Secure Access Made Simple: Terraform-driven AWS Client VPN**
 
