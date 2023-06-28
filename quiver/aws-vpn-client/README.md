@@ -1,18 +1,30 @@
-# **AWS VPN Setup**
+---
+type: "post"
+title: "Secure Access Made Simple: Terraform-driven AWS Client VPN"
+topic: "Security"
+date: "2023-06-28T15:30:00-07:00"
+author: "Fernando Reyes"
+time: "1 min read"
+description: "Discover how to effortlessly establish secure network connectivity and access resources within your AWS Virtual Private Cloud (VPC) using Terraform."
+url: "/services/aws-vpn-client"
+---
+
+# **Secure Access Made Simple: Terraform-driven AWS Client VPN**
 
 ## **Description**
-This repository provides a terraform code to set up an AWS infrastructure with a client VPN endpoint for accessing resources within a VPC. It creates security groups to control access and establishes network associations for private subnets.
+This repository provides a terraform code to set up an AWS infrastructure with a client VPN endpoint for secure remote access to resources within a VPC. It creates security groups to control access and establishes network associations for private subnets.
 
 ## **Use Cases**
 The AWS VPN setup can be utilized in various scenarios, including:
 
-1. **Remote Access (Bastion Alternative)**: Provide a secure alternative to a bastion by enabling authorized users to securely connect to AWS resources through a virtual private network (VPN) from remote locations.
+1. **Remote Access (Bastion Alternative)**: Provide a secure alternative to a bastion by enabling authorized users to securely connect with high availability to AWS resources through a virtual private network (VPN) from remote locations.
 
-2. **Site-to-Site Connectivity**: Establish secure connections between multiple on-premises data centers or branch offices and the AWS cloud, enabling seamless and protected communication between these environments.
+2. **Site-to-Site Connectivity**: Establish secure connections between multiple on-premises data centers or branch offices and the AWS cloud, enabling seamless and protected communication between these environments, including multi-region deployments.
 
-3. **Third-Party Vendor Access**: Many enterprises work with external vendors or consultants who require access to specific resources for collaboration or system integration. This VPN  can provide a secure and controlled connection for these vendors to access the necessary resources without exposing the internal network to external threats.
+3. **Third-Party Vendor Access**: Many enterprises work with external vendors or consultants who require access to specific resources for collaboration or system integration. Cloud network security plays a vital role in this scenario. This VPN can provide a secure and controlled connection for these vendors to access the necessary resources without exposing the internal network to external threats.
+
 ## **Diagram**
-![VPN Diagram](./diagrams/vpn-diagram.png)
+![VPN Diagram](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/dev/quiver/aws-vpn-client/diagrams/vpn-diagram.png)
 
 ## **How It Works**
 1. Provider Configuration:
@@ -44,4 +56,3 @@ Dont forget to checkout our youtube channel [Black Arrow Gang](https://www.youtu
 And if you are feeling generous you can go ahead and buy us a cup a coffee.
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://blackarrowgang.com)
-
