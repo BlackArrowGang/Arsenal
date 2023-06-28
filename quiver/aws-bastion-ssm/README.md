@@ -13,7 +13,7 @@ The Terraform bastion setup can be utilized in various scenarios, including:
 3. **Enhanced Security**: Restrict access to resources by leveraging security groups to control inbound and outbound traffic between the bastion host and other resources. This helps protect sensitive data and ensures that only authorized communication is allowed.
 
 ## **Diagram**
-![Bastion Diagram](./diagrams/bastion-diagram.png)
+![Bastion Diagram](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/dev/quiver/aws-bastion-ssm/diagrams/bastion-diagram.png)
 
 ## **How It Works**
 
@@ -29,7 +29,7 @@ The Terraform bastion setup can be utilized in various scenarios, including:
 Steps: 
 1. Run `terraform init` to install modules: This will install the necessary modules to initialize.
 
-2. Run `terraform plan` to review changes in your actual AWS infrastructure ![terraform plan command](../aws-bastion-ssm/diagrams/terraform_plan.svg)
+2. Run `terraform plan` to review changes in your actual AWS infrastructure ![terraform plan command](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/dev/quiver/aws-bastion-ssm/diagrams/terraform_plan.svg)
 
 3. Change local variables if needed
    
@@ -46,7 +46,7 @@ Steps:
     }
     ```
 
-4. Run `terraform apply` to apply changes to infrastructure ![terraform apply command](../aws-bastion-ssm/diagrams/terraform_apply.svg)
+4. Run `terraform apply` to apply changes to infrastructure ![terraform apply command](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/dev/quiver/aws-bastion-ssm/diagrams/terraform_apply.svg)
 
 5. **Apply the security group to the desired resource within the same VPC to enable a connection from the bastion to the resource.**, *This Terraform code creates a security group that includes the necessary ports to establish a connection with a PostgreSQL RDS.* 
 
