@@ -71,13 +71,13 @@ module "security_group-networks" {
   description = "Allow access between networks"
   vpc_id      = module.vpc.vpc_id
 
-ingress_with_self = [
+  ingress_with_self = [
     {
       rule = "all-all"
     }
   ]
   #Allow access from vpn to rds or other resource inside private subnet
-egress_with_self = [
+  egress_with_self = [
     {
       from_port = 5432
       to_port   = 5432
@@ -98,7 +98,7 @@ resource "aws_ec2_client_vpn_authorization_rule" "authroize_vpn_vpc" {
 resource "aws_ec2_client_vpn_endpoint" "client-vpn" {
   description            = "Client-VPN"
   #Use server-certificate ARN from AWS ACM https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/mutual.html
-  server_certificate_arn = "arn:aws:acm:us-east-2:401745644029:certificate/532116a7-0425-4cac-9d13-b5c3e33e2246"
+  server_certificate_arn = "Replace with server certificate"
   client_cidr_block      = "192.168.128.0/22"
   split_tunnel           = "true"
   security_group_ids     = [module.security_group.security_group_id,module.security_group-networks.security_group_id]
@@ -107,7 +107,7 @@ resource "aws_ec2_client_vpn_endpoint" "client-vpn" {
   authentication_options {
     type                       = "certificate-authentication"
     #Use client-certificate ARN from AWS ACM https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/mutual.html
-    root_certificate_chain_arn = "arn:aws:acm:us-east-2:401745644029:certificate/ba35a750-f127-4ef2-b5ea-00fb558d4a0c"
+    root_certificate_chain_arn = "Replace with user certificate"
   }
 
   connection_log_options {
@@ -118,68 +118,19 @@ resource "aws_ec2_client_vpn_endpoint" "client-vpn" {
 resource "aws_ec2_client_vpn_network_association" "associate_subnet_1" {
   client_vpn_endpoint_id = aws_ec2_client_vpn_endpoint.client-vpn.id
   subnet_id              = module.vpc.private_subnets[0]
-
 }
 
 resource "aws_ec2_client_vpn_network_association" "associate_subnet_2" {
   client_vpn_endpoint_id = aws_ec2_client_vpn_endpoint.client-vpn.id
   subnet_id              = module.vpc.private_subnets[1]
-
 }
 
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
-  name   = "myrdsvpn"
+  name   = "database-cluster-vpc"
   cidr   = "142.32.0.0/16"
 
   azs            = ["us-east-2a", "us-east-2b"]
   private_subnets = ["142.32.1.0/24", "142.32.2.0/24"]
   database_subnets = ["142.32.3.0/24", "142.32.4.0/24"]
 }
-
-
-# module "cluster" {
-#   source  = "terraform-aws-modules/rds-aurora/aws"
-
-#   name           = "test-aurora-db-postgres96"
-#   engine         = "aurora-postgresql"
-#   engine_version = "14.6"
-#   instance_class = "db.r5.large"
-#   instances = {
-#     one = {
-#       publicly_accessible = true
-#     }
-#     two = {
-#       publicly_accessible = true
-#     }
-#   }
-
-#   vpc_id               = module.vpc.vpc_id
-#   db_subnet_group_name = "db-subnet-group"
-#   security_group_rules = {
-#     ex1_ingress = {
-#       cidr_blocks = ["10.20.0.0/20"]
-#     }
-#     ex1_ingress = {
-#       source_security_group_id = "sg-12345678"
-#     }
-#   }
-
-#   storage_encrypted   = true
-#   apply_immediately   = true
-#   monitoring_interval = 10
-
-#   tags = {
-#     Environment = "dev"
-#     Terraform   = "true"
-#   }
-# }
-
-# module "vpc" {
-#   source = "terraform-aws-modules/vpc/aws"
-#   name   = "rds-vpc"
-#   cidr   = "142.32.0.0/16"
-
-#   azs            = ["us-east-2a", "us-east-2b"]
-#   database_subnets = ["142.32.3.0/24", "142.32.4.0/24"]
-# }
