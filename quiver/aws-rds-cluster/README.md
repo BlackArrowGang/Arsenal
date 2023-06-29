@@ -52,7 +52,7 @@ The AWS RDS Aurora database cluster setup can be utilized in various scenarios, 
 4. Client VPN Endpoint Configuration:
 
     - The server certificate ARN.
-    -A client CIDR block of "192.168.128.0/22".
+    - A client CIDR block of "192.168.128.0/22".
     - The VPN endpoint is associated with the VPC and the "vpn_access_security_group" and "resource_access_security_group" security groups.
     - Certificate-based authentication is configured with the root certificate chain ARN.
 
