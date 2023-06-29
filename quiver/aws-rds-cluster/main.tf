@@ -15,7 +15,7 @@ module "vpc" {
   database_subnets = ["142.32.3.0/24", "142.32.4.0/24"]
 }
 
-module "aurora_postgresql_v2" {
+module "rds_aurora" {
   source  = "terraform-aws-modules/rds-aurora/aws"
   version = "8.3.1"
 
