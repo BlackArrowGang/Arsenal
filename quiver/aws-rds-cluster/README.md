@@ -1,4 +1,17 @@
-# **Scalable and Efficient: Terraform-driven AWS RDS Serverless Cluster**
+<!-- 
+---
+type: "post"
+title: "Scalable and Efficient: Terraform Configuration for AWS Serverless Database Cluster"
+topic: "Provisioning"
+date: "2023-06-26T15:30:00-07:00"
+author: "Fernando Reyes"
+time: "2 min read"
+description: "Learn how to set up a scalable and secure serverless database cluster on AWS using Terraform. Automate the configuration process and enjoy the benefits of Aurora's performance and reliability while maintaining control over access and security."
+url: "/services/aws-rds-cluster"
+---
+-->
+
+# **Scalable and Efficient: Terraform Configuration for AWS Serverless Database Cluster**
 
 ## **Description**
 This repository provides Terraform code for setting up an Serverless database cluster on AWS. It automates the configuration of a scalable and highly available database solution, including VPC, subnets, security groups, and VPN access. Enjoy the benefits of Aurora's performance and reliability while maintaining control over access and security.
@@ -13,7 +26,7 @@ The AWS RDS Aurora database cluster setup can be utilized in various scenarios, 
 3. **Multi-Region Data Replication**: RDS Aurora supports cross-region replication, enabling you to replicate your database across multiple AWS regions. This provides disaster recovery capabilities and allows you to serve your customers from different geographical locations with low latency.
 
 ## **Diagram**
-![RDS Cluster Diagram](./diagrams/-diagram.png)
+![RDS Cluster Diagram](./diagrams/aws-serverless-rds-cluster-diagram.png)
 
 ## **How It Works**
 TODO
