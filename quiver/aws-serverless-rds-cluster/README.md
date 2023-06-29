@@ -64,9 +64,9 @@ The AWS RDS Aurora database cluster setup can be utilized in various scenarios, 
     - The client VPN endpoint is associated with the private subnets the VPC to enable VPN connectivity.
 
 ## **Support**
-If you encounter any issues or have questions related to this AWS VPN setup with Terraform, or need assistance setting up the VPN or any other related services, Hire us and we can do it for you. 
+If you encounter any issues or need assistance setting things up, Hire us and we can do it for you. 
 
-To get started, you can visit our website [blackarrowgang.com](https://blackarrowgang.com) to explore our services and schedule a meeting with our team. We are committed to providing you with the necessary support and guidance to ensure a successful implementation of your VPN infrastructure.
+To get started, you can visit our website [blackarrowgang.com](https://blackarrowgang.com) to explore our services and schedule a meeting with our team. We are committed to providing you with the necessary support and guidance.
 
 Dont forget to checkout our youtube channel [Black Arrow Gang](https://www.youtube.com/@blackarrowgang3373), where we will showcase the functionality of this services in the future. 
 
