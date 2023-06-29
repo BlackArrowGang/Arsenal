@@ -29,7 +29,39 @@ The AWS RDS Aurora database cluster setup can be utilized in various scenarios, 
 ![RDS Cluster Diagram](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/fe605097ab64a4dd36d090593ee8f42eb55f64bc/quiver/aws-rds-cluster/diagrams/aws-serverless-rds-cluster-diagram.png)
 
 ## **How It Works**
-TODO
+
+1. VPC Module:
+    - The VPC module creates a custom VPC with the CIDR block "142.32.0.0/16" across two availability zones ("us-east-2a" and "us-east-2b").
+    - It sets up two private subnets with CIDR blocks "142.32.1.0/24" and "142.32.2.0/24".
+    - Additionally, it creates database subnets with CIDR blocks "142.32.3.0/24" and "142.32.4.0/24".
+
+2. Aurora PostgreSQL RDS Module:
+
+    - The RDS module deploys an Aurora PostgreSQL database cluster within the VPC.
+    - It utilizes the "db.serverless" instance class with two instances.
+    - Serverless scaling is configured with a minimum capacity of 0.5 and a maximum capacity of 1.
+    - The database is connected to the VPC, a database subnet group, and the "resource_access_security_group" security group.
+    - Other configurations include monitoring, skipping the final snapshot, applying changes immediately, and encrypting the storage.
+
+3. Security Group Modules:
+
+    - The "vpn_access_security_group" module is responsible for creating a security group named "vpn_access" that allows connection to the VPN.
+    - The "resource_access_security_group" module creates a security group named "resource-access" that allows access to AWS resources.
+    - The "resource_access_security_group" module enables communication between networks within the VPC and allows outbound TCP traffic on port 5432 to itself.
+
+4. Client VPN Endpoint Configuration:
+
+    - The server certificate ARN.
+    -A client CIDR block of "192.168.128.0/22".
+    - The VPN endpoint is associated with the VPC and the "vpn_access_security_group" and "resource_access_security_group" security groups.
+    - Certificate-based authentication is configured with the root certificate chain ARN.
+
+5. Client VPN Authorization Rule:
+    - An authorization rule is set up to allow VPN access to the entire VPC or a specific CIDR block.
+    - The authorization rule is associated with the client VPN endpoint.
+
+6. Client VPN Network Associations:
+    - The client VPN endpoint is associated with the private subnets the VPC to enable VPN connectivity.
 
 ## **Support**
 If you encounter any issues or have questions related to this AWS VPN setup with Terraform, or need assistance setting up the VPN or any other related services, Hire us and we can do it for you. 
