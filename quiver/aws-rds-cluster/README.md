@@ -14,12 +14,12 @@ url: "/services/aws-rds-cluster"
 # **Scalable and Efficient: Terraform Configuration for AWS Serverless Database Cluster**
 
 ## **Description**
-This repository provides Terraform code for setting up an Serverless database cluster on AWS. It automates the configuration of a scalable and highly available database solution, including VPC, subnets, security groups, and VPN access. Enjoy the benefits of Aurora's performance and reliability while maintaining control over access and security.
+This repository provides Terraform code for setting up an Serverless database cluster on AWS. It automates the configuration of a scalable and highly available database solution, including VPC, subnets, security groups, and a VPN endpoint for secure remote access. Enjoy the benefits of Aurora's performance and reliability while maintaining control over access and security.
 
 ## **Use Cases**
 The AWS RDS Aurora database cluster setup can be utilized in various scenarios, including:
 
-1.  **Effortless Scalability for Startups**: Startups effortlessly scale their databases with AWS RDS Aurora and Terraform. Automatic scaling handles unpredictable growth, while streamlined resource management and cost-effective scaling optimize operations. Terraform simplifies provisioning and configuration, enabling startups to establish reliable, scalable infrastructure for hassle-free growth.
+1.  **Effortless Scalability for Startups**: Startups effortlessly scale their databases with RDS Aurora serverless architecture and Terraform. Automatic scaling handles unpredictable growth, while streamlined resource management and cost-effective scaling optimize operations. Terraform simplifies disaster recovery, provisioning and configuration, enabling startups to establish reliable, scalable infrastructure for hassle-free growth.
 
 2. **Highly Available Applications**: Deploying an RDS Aurora database cluster ensures high availability for your applications. By leveraging automatic replication and failover capabilities, you can maintain uninterrupted access to your database even in the event of a failure.
 
