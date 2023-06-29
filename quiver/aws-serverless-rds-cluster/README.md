@@ -7,7 +7,7 @@ date: "2023-06-26T15:30:00-07:00"
 author: "Fernando Reyes"
 time: "2 min read"
 description: "Learn how to set up a scalable and secure serverless database cluster on AWS using Terraform. Automate the configuration process and enjoy the benefits of Aurora's performance and reliability while maintaining control over access and security."
-url: "/services/aws-rds-cluster"
+url: "/services/aws-serverless-rds-cluster"
 ---
 -->
 
