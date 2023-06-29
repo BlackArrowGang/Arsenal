@@ -26,7 +26,7 @@ The AWS RDS Aurora database cluster setup can be utilized in various scenarios, 
 3. **Multi-Region Data Replication**: RDS Aurora supports cross-region replication, enabling you to replicate your database across multiple AWS regions. This provides disaster recovery capabilities and allows you to serve your customers from different geographical locations with low latency.
 
 ## **Diagram**
-![RDS Cluster Diagram](./diagrams/aws-serverless-rds-cluster-diagram.png)
+![RDS Cluster Diagram](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/fe605097ab64a4dd36d090593ee8f42eb55f64bc/quiver/aws-rds-cluster/diagrams/aws-serverless-rds-cluster-diagram.png)
 
 ## **How It Works**
 TODO
