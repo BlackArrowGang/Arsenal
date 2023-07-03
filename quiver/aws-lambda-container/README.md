@@ -1,30 +1,28 @@
 <!-- 
 ---
 type: "post"
-title: ""
+title: "AWS Lambda Containers: A Game-Changer for Scalable and Efficient Serverless Applications"
 topic: "Provisioning"
-date: "2023-06-26T15:30:00-07:00"
+date: "2023-07-01T15:30:00-07:00"
 author: "Fernando Reyes"
 time: "2 min read"
-description: ""
+description: "Simplify the deployment of Docker containers as Lambda functions on AWS using Terraform. This code snippet leverages the benefits of serverless architecture and containers to create a Lambda function module that effortlessly deploys a container image."
 url: "/services/aws-lambda-container"
 ---
 -->
 
-# **Provision AWS Lambda with Terraform: Harness the Power of Docker Containers**
+# **AWS Lambda Containers: A Game-Changer for Scalable and Efficient Serverless Applications**
 
-## **Description**
 Simplify the deployment of Docker containers as Lambda functions on AWS using Terraform. This code snippet creates a Lambda function module, and effortlessly deploys a container image. Customize the function name, description, and provide the private ECR image URI for a seamless deployment experience. Streamline your AWS Lambda deployment process and unleash the power of containerization with this efficient Terraform solution.
 
-## **Use Cases**
-1. **Serverless Microservices:** Deploying Docker containers as Lambda functions with Terraform enables you to build serverless microservices architectures. Each containerized Lambda function can encapsulate a specific functionality or service, allowing for independent scaling, easy management, and efficient resource utilization.
+![Lambda Container Diagram](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/dev/quiver/aws-lambda-container/diagrams/aws-lambda-container-diagram.png)
 
-2. **CI/CD Pipelines:** By leveraging Terraform to deploy Docker containers on AWS Lambda, you can integrate this process into your CI/CD pipelines. Automate the deployment of containerized applications as Lambda functions, ensuring consistent and reliable deployment across multiple environments, such as development, staging, and production.
+## **Use Cases**
+1. **Serverless Microservices:** Deploy Docker containers as Lambda functions using Terraform to create serverless microservices architectures. Benefit from independent scaling and optimized resource utilization by encapsulating specific functionalities or services within each containerized Lambda function.
+
+2. **CI/CD Pipelines:** Streamline your CI/CD pipelines by deploying Docker containers on AWS Lambda with Terraform. Automate the deployment of containerized applications as Lambda functions, ensuring consistent and reliable deployment across multiple environments like development, staging, and production.
 
 3. **Scheduled Tasks and Cron Jobs:** Terraform enables you to schedule Docker container execution as Lambda functions, making it ideal for automating routine tasks, cron jobs, and scheduled processes. Whether it's data backups, periodic data processing, or system maintenance, you can leverage Lambda's built-in scheduling capabilities to execute containerized tasks at specific intervals.
-
-## **Diagram**
-![Lambda Container Diagram](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/dev/quiver/aws-lambda-container/diagrams/aws-lambda-container-diagram.png)
 
 ## **How It Works**
 
@@ -65,7 +63,10 @@ terraform apply
 ```
 
 ## **Support**
+
 If you encounter any issues or need assistance setting things up, Hire us and we can do it for you. 
+
+Want to try things for yourself?, checkout our github repository [Arsenal](https://github.com/BlackArrowGang/Arsenal/tree/dev/quiver/aws-lambda-container).
 
 To get started, you can visit our website [blackarrowgang.com](https://blackarrowgang.com) to explore our services and schedule a meeting with our team. We are committed to providing you with the necessary support and guidance.
 
