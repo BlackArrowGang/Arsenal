@@ -1,7 +1,7 @@
 <!-- 
 ---
 type: "post"
-title: "Scalable and Efficient: Terraform Configuration for AWS Serverless Database Cluster"
+title: "Scalable Database Cluster: AWS Aurora Serverless"
 topic: "Provisioning"
 date: "2023-06-26T15:30:00-07:00"
 author: "Fernando Reyes"
@@ -11,10 +11,11 @@ url: "/services/aws-serverless-rds-cluster"
 ---
 -->
 
-# **Scalable and Efficient: Terraform Configuration for AWS Serverless Database Cluster**
+# **Scalable Database Cluster: AWS Aurora Serverless**
 
-## **Description**
-This repository provides Terraform code for setting up an Serverless database cluster on AWS. It automates the configuration of a scalable and highly available database solution, including VPC, subnets, security groups, and a VPN endpoint for secure remote access. Enjoy the benefits of Aurora's performance and reliability while maintaining control over access and security.
+Discover how Terraform, a powerful infrastructure-as-code tool, simplifies the process of deploying infrastructure on AWS. This blog post provides a concise overview of using Terraform to provision an AWS Serverless database cluster, and secure VPN access. 
+
+![RDS Cluster Diagram](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/fe605097ab64a4dd36d090593ee8f42eb55f64bc/quiver/aws-rds-cluster/diagrams/aws-serverless-rds-cluster-diagram.png)
 
 ## **Use Cases**
 The AWS RDS Aurora database cluster setup can be utilized in various scenarios, including:
@@ -25,8 +26,6 @@ The AWS RDS Aurora database cluster setup can be utilized in various scenarios, 
 
 3. **Multi-Region Data Replication**: RDS Aurora supports cross-region replication, enabling you to replicate your database across multiple AWS regions. This provides disaster recovery capabilities and allows you to serve your customers from different geographical locations with low latency.
 
-## **Diagram**
-![RDS Cluster Diagram](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/fe605097ab64a4dd36d090593ee8f42eb55f64bc/quiver/aws-rds-cluster/diagrams/aws-serverless-rds-cluster-diagram.png)
 
 ## **How It Works**
 
@@ -65,6 +64,8 @@ The AWS RDS Aurora database cluster setup can be utilized in various scenarios, 
 
 ## **Support**
 If you encounter any issues or need assistance setting things up, Hire us and we can do it for you. 
+
+Want to try things for yourself?, checkout our github repository [Arsenal](https://github.com/BlackArrowGang/Arsenal/tree/dev/quiver/aws-serverless-rds-cluster).
 
 To get started, you can visit our website [blackarrowgang.com](https://blackarrowgang.com) to explore our services and schedule a meeting with our team. We are committed to providing you with the necessary support and guidance.
 
