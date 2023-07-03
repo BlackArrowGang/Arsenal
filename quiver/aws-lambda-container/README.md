@@ -24,9 +24,22 @@ Simplify the deployment of Docker containers as Lambda functions on AWS using Te
 3. **Scheduled Tasks and Cron Jobs:** Terraform enables you to schedule Docker container execution as Lambda functions, making it ideal for automating routine tasks, cron jobs, and scheduled processes. Whether it's data backups, periodic data processing, or system maintenance, you can leverage Lambda's built-in scheduling capabilities to execute containerized tasks at specific intervals.
 
 ## **Diagram**
-![Lambda Container Diagram]()
+![Lambda Container Diagram](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/dev/quiver/aws-lambda-container/diagrams/aws-lambda-container-diagram.png)
 
 ## **How It Works**
+
+- Provision an AWS Lambda function running a Docker container using Terraform:
+  - Configure the AWS provider with the desired profile and region.
+  - Utilize the `terraform-aws-modules/lambda/aws` module.
+  - Provide function name, description, and image URI for the container.
+  - Customize additional parameters as needed.
+- Running the Terraform code:
+  - Install Terraform, navigate to the code directory, and initialize.
+  - Preview the plan with `terraform plan` and apply changes with `terraform apply`.
+  - Review the output for details of the created Lambda function.
+- Cleaning up resources:
+  - Use `terraform destroy` when the Lambda function is no longer needed.
+- Exercise caution, review, and test the code before using in production.
 
 ## **Usage**
 
