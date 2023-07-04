@@ -15,7 +15,7 @@ url: "/services/aws-rds-proxy"
 
 Boost your Amazon RDS databases with AWS RDS Proxy! Experience unrivaled scalability, availability, and security. With automatic connection pooling and failover mechanisms, managing your databases becomes a breeze. Eliminate manual scaling and unleash the true potential of your Amazon RDS infrastructure. Discover the game-changing power of AWS RDS Proxy today!
 
-![RDS Proxy Diagram](diagrams/aws-rds-proxy-diagram.png)
+![RDS Proxy Diagram](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/dev/quiver/aws-rds-proxy/diagrams/aws-rds-proxy-diagram.png)
 
 ## **Use Cases**
 1. **Flexible Traffic Redirection:** Provides exceptional flexibility for redirecting and distributing database traffic to accommodate evolving application requirements. It enables seamless redirection of incoming traffic across multiple database instances without the need to modify application code.
