@@ -1,7 +1,7 @@
 <!-- 
 ---
 type: "post"
-title: "Achieve High Availability with AWS RDS Proxy and Terraform"
+title: "AWS RDS Proxy: Minimum Pricing High Flexibility"
 topic: "Provisioning"
 date: "2023-07-01T15:30:00-07:00"
 author: "Fernando Reyes"
@@ -11,7 +11,7 @@ url: "/services/aws-rds-proxy"
 ---
 -->
 
-# **Achieve High Availability with AWS RDS Proxy and Terraform**
+# **AWS RDS Proxy: Minimum Pricing High Flexibility**
 
 Boost your Amazon RDS databases with AWS RDS Proxy! Experience unrivaled scalability, availability, and security. With automatic connection pooling and failover mechanisms, managing your databases becomes a breeze. Eliminate manual scaling and unleash the true potential of your Amazon RDS infrastructure. Discover the game-changing power of AWS RDS Proxy today!
 
@@ -24,44 +24,11 @@ Boost your Amazon RDS databases with AWS RDS Proxy! Experience unrivaled scalabi
 
 3. **Improved Database Performance:** By leveraging AWS RDS Proxy, you can enhance the performance of your applications that interact with the database. RDS Proxy helps reduce connection establishment times and handles connection pooling efficiently, resulting in faster response times and improved overall database performance.
 
-## **How It Works**
-
-- **KMS Module**:
-  - Creates a Key Management Service (KMS) key with the description "RDS key usage" and key usage set to "ENCRYPT_DECRYPT".
-  - Sets an alias for the key as "metalab/rds".
-
-- **Secrets Manager**:
-  - Creates a Secrets Manager secret named "root-2" with a description of "RDS super user credentials".
-  - Associates the created KMS key with the Secrets Manager secret.
-
-- **RDS Proxy Module**:
-  - Creates an RDS Proxy named "rds-proxy" to provide connectivity and pooling capabilities to Amazon RDS or Aurora database instances.
-  - Sets the IAM role name to "rds-proxy-role" for managing access to the proxy.
-  - Disables IAM authentication for the proxy (`iam_auth = "DISABLED"`).
-  - Enables the creation of an IAM policy and IAM role for the proxy.
-  - Manages the log group for the proxy is set to false (`manage_log_group = false`).
-  - Disables the requirement of Transport Layer Security (TLS) for connections to the proxy (`require_tls = false`).
-  - Configures the VPC subnet IDs and security group IDs for the read-write endpoint of the proxy, allowing connections from the specified subnets and security groups.
-  - Specifies the secrets to be associated with the proxy, in this case, the "root" secret.
-  - The "root" secret is described as "Aurora PostgreSQL superuser password" and is associated with the KMS key and ARN of the "root" secret created in the Secrets Manager section.
-
-- **Aurora PostgreSQL**:
-  - Creates an Amazon Aurora PostgreSQL database with the specified engine version, master username, and password.
-  - Configures VPC settings, including VPC ID, subnet group name, and security group IDs.
-  - Sets up security group rules for ingress traffic.
-  - Configures serverless scaling settings.
-
-- **Security Groups**:
-  - Creates a security group named "vpn_access" allowing inbound traffic on port 443 from any IP address.
-  - Creates a security group named "rds_access" allowing inbound and outbound traffic on port 5432 within the security group itself.
-  - Creates a security group named "access_networks" allowing all inbound and outbound traffic within the security group itself.
-
-
 ## **Usage**
 
 Requirements
-* AWS CLI
-* Terraform
+- AWS CLI
+- Terraform
 
 **Note:** It might take a few minutes to fully create.
 
@@ -79,6 +46,66 @@ terraform plan
 ```
 terraform apply
 ```
+
+## **How It Works**
+- **Provider and VPC Configuration:**
+  - Configure the AWS provider with the default profile and region.
+  - Use the `terraform-aws-modules/vpc/aws` module to create a VPC.
+    - Specify the VPC name, availability zones, CIDR block, private subnets, and database subnets.
+
+- **RDS Proxy Configuration:**
+  - Use the `terraform-aws-modules/rds-proxy/aws` module to create an RDS Proxy.
+    - Specify the RDS Proxy name, IAM role name, and authentication mode.
+    - Create IAM policy and role if enabled.
+    - Configure VPC subnet IDs and security group IDs.
+    - Define RDS Proxy endpoints for read-write operations.
+    - Configure secrets for the RDS Proxy.
+
+- **RDS Aurora Configuration:**
+  - Use the `terraform-aws-modules/rds-aurora/aws` module to create an RDS Aurora cluster.
+    - Specify the Aurora cluster name, engine, engine mode, and engine version.
+    - Set up the master username and password.
+    - Configure availability zones, instance class, and scaling configuration.
+    - Define VPC ID, database subnet group, and security group IDs.
+    - Set up security group rules, monitoring interval, encryption, and tags.
+
+- **Security Group Configuration:**
+  - Create a VPN access security group using the `terraform-aws-modules/security-group/aws` module.
+    - Specify the security group name, description, and VPC ID.
+    - Allow inbound traffic on UDP port 443 from any IP address.
+
+  - Create an RDS access security group using the same module.
+    - Specify the security group name, description, and VPC ID.
+    - Allow inbound and outbound traffic on TCP port 5432 to and from itself.
+
+  - Create a resource access security group using the same module.
+    - Specify the security group name, description, and VPC ID.
+    - Allow all inbound and outbound traffic to and from itself.
+
+- **KMS Key Configuration:**
+  - Use the `terraform-aws-modules/kms/aws` module to create a KMS key.
+    - Specify the key description and usage.
+    - Assign an alias to the KMS key.
+
+- **Secrets Configuration:**
+  - Create an AWS Secrets Manager secret for the RDS superuser credentials.
+    - Specify the secret name, description, and KMS key ID.
+
+  - Create a secret version for the RDS superuser credentials.
+    - Associate the secret version with the previously created secret.
+    - Set the username and password for the RDS superuser.
+
+- **Client VPN Configuration:**
+  - Create an AWS Client VPN endpoint.
+    - Specify the description, server certificate ARN, client CIDR block, split tunneling, VPC ID, and security group IDs.
+    - Configure certificate-based authentication with the root certificate chain ARN.
+    - Disable connection logging.
+
+  - Authorize VPN access to the VPC.
+    - Associate the Client VPN endpoint with the VPC and allow access to all groups.
+
+  - Associate subnets with the Client VPN endpoint.
+    - Associate the Client VPN endpoint with each private subnet in the VPC.
 
 ## **Support**
 
