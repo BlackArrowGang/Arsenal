@@ -7,13 +7,22 @@ date: "2023-07-01T15:30:00-07:00"
 author: "Fernando Reyes"
 time: "2 min read"
 description: "Simplify the deployment of Docker containers as Lambda functions on AWS using Terraform. This code snippet leverages the benefits of serverless architecture and containers to create a Lambda function module that effortlessly deploys a container image."
-url: "/services/aws-lambda-container"
+url: "/blog/aws-lambda-container"
 ---
 -->
 
 # **AWS Lambda Containers: A Game-Changer for Scalable and Efficient Serverless Applications**
 
-Simplify the deployment of Docker containers as Lambda functions on AWS using Terraform. This code snippet creates a Lambda function module, and effortlessly deploys a container image. Customize the function name, description, and provide the private ECR image URI for a seamless deployment experience. Streamline your AWS Lambda deployment process and unleash the power of containerization with this efficient Terraform solution.
+Simplify the deployment of Docker containers as Lambda functions on AWS using Terraform. This code snippet creates a Lambda function module, and deploys a container image. Streamline your AWS Lambda deployment process and unleash the power of containerization with this efficient Terraform solution.
+
+## **Table of contents**
+
+* [Use Cases](#use-cases)
+* [Requirements](#requirements)
+* [Installation](#installation)
+* [Usage](#usage)
+* [How It Works](#how-it-works)
+* [Support](#support)
 
 ![Lambda Container Diagram](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/dev/quiver/aws-lambda-container/diagrams/aws-lambda-container-diagram.png)
 
@@ -24,43 +33,71 @@ Simplify the deployment of Docker containers as Lambda functions on AWS using Te
 
 3. **Scheduled Tasks and Cron Jobs:** Terraform enables you to schedule Docker container execution as Lambda functions, making it ideal for automating routine tasks, cron jobs, and scheduled processes. Whether it's data backups, periodic data processing, or system maintenance, you can leverage Lambda's built-in scheduling capabilities to execute containerized tasks at specific intervals.
 
-## **How It Works**
 
-- Provision an AWS Lambda function running a Docker container using Terraform:
-  - Configure the AWS provider with the desired profile and region.
-  - Utilize the `terraform-aws-modules/lambda/aws` module.
-  - Provide function name, description, and image URI for the container.
-  - Customize additional parameters as needed.
-- Running the Terraform code:
-  - Install Terraform, navigate to the code directory, and initialize.
-  - Preview the plan with `terraform plan` and apply changes with `terraform apply`.
-  - Review the output for details of the created Lambda function.
-- Cleaning up resources:
-  - Use `terraform destroy` when the Lambda function is no longer needed.
-- Exercise caution, review, and test the code before using in production.
+## **Requirements**
+| Name     | Version  |
+|----------|----------|
+|[terraform](#requirement) | >= 1.0 |
+|[aws-cli](#requirement)   | >= 2.0 |
+|[docker](#requirement)   | >= 24.0 |
 
-## **Usage**
+## **Installation**
 
-Requirements
-* AWS CLI
-* Terraform
-
-**Note:** Make sure you have an existing Docker image uploaded to your private Elastic Container Registry (ECR).
-
-To use this code, follow these steps:
-
-1. Open a terminal window.
-2. Run the following commands
-
+Clone the repository
+```
+git clone https://github.com/BlackArrowGang/Arsenal.git
+```
+Go to the solution directory
+```
+cd /Arsenal/quiver/aws-lambda-container
+```
+Install terraform modules
 ```
 terraform init
 ```
+
+## **Usage**
+
+To use this code, follow these steps:
+
+**Elastic Container Registry**
+  1. Create a private repository
+      - Refer to this <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-create.html" target="_blank">AWS documentation</a>
+  2. Click on the View push commands button
+      ![Private repositories page](media/image_01.png)
+  3. Push your image to the repository
+      ![Push image to repo commands](media/image_02.png)
+
+**Note:** Make sure the image you want to upload has an appropiate base image to work on a lambda function, you can search in the <a href="https://gallery.ecr.aws/" target="_blank">ECR Public Gallery</a>.
+
+**Modify Code**
+   1. Set the desired profile, region, function name and description on the locals section inside the main.tf file
+   2. Add your ECR image URI.
+
+**Terraform Setup**
+
+Once the image is uploaded to the repository, the lambda function can be deployed.
+
+   1. Open a terminal window.
+   2. Run the following commands.
+
 ```
 terraform plan
 ```
 ```
 terraform apply
 ```
+
+## **How It Works**
+
+1. Local Variables
+    - This section defines a set of local variables using the locals block. These variables store configuration values such as the AWS profile, region, Lambda function name, function description, and Docker image URI.
+
+2. Provider Configuration
+    - Configure the AWS provider profile and region from the local variables.
+
+3. Lambda Configuration
+    - Configures the Lambda function using the terraform aws module, and setting the name, description and image uri.
 
 ## **Support**
 
