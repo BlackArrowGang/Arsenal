@@ -1,7 +1,7 @@
 <!-- 
 ---
 type: "post"
-title: "AWS RDS Proxy: Minimum Pricing High Flexibility"
+title: "AWS RDS Proxy: The Key to Flexibility, Security, and High Performance"
 topic: "Provisioning"
 date: "2023-07-01T15:30:00-07:00"
 author: "Fernando Reyes"
@@ -11,9 +11,18 @@ url: "/blog/aws-rds-proxy"
 ---
 -->
 
-# **AWS RDS Proxy: Minimum Pricing High Flexibility**
+# **AWS RDS Proxy: The Key to Flexibility, Security, and High Performance**
 
-Boost your Amazon RDS databases with AWS RDS Proxy! Experience unrivaled scalability, availability, and security. With automatic connection pooling and failover mechanisms, managing your databases becomes a breeze. Eliminate manual scaling and unleash the true potential of your Amazon RDS infrastructure. Discover the game-changing power of AWS RDS Proxy today!
+🔄AWS RDS Proxy makes managing and scaling databases on Amazon RDS easier. It boosts performance, handles failovers smoothly, and simplifies database tasks. With connection pooling, it optimizes resource usage, ensuring efficient operations and better security.⚡️🔒 
+
+## **Table of contents**
+
+* [Use Cases](#use-cases)
+* [Requirements](#requirements)
+* [Installation](#installation)
+* [Usage](#usage)
+* [How It Works](#how-it-works)
+* [Support](#support)
 
 ![RDS Proxy Diagram](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/main/quiver/aws-rds-proxy/diagrams/aws-rds-proxy-diagram.png)
 
@@ -24,22 +33,36 @@ Boost your Amazon RDS databases with AWS RDS Proxy! Experience unrivaled scalabi
 
 3. **Improved Database Performance:** By leveraging AWS RDS Proxy, you can enhance the performance of your applications that interact with the database. RDS Proxy helps reduce connection establishment times and handles connection pooling efficiently, resulting in faster response times and improved overall database performance.
 
-## **Usage**
+## **Requirements**
+| Name     | Version  |
+|----------|----------|
+|[Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) | >= 1.0 |
+|[AWS CLI](https://github.com/aws/aws-cli)  | >= 2.0 |
+|[OpenVPN](https://openvpn.net/community-downloads/)   | >= 2.5 |
 
-Requirements
-- AWS CLI
-- Terraform
+## **Installation**
+
+Clone the repository
+```
+git clone https://github.com/BlackArrowGang/Arsenal.git
+```
+Go to the solution directory
+```
+cd /Arsenal/quiver/aws-rds-proxy
+```
+Install terraform modules
+```
+terraform init
+```
+
+## **Usage**
 
 **Note:** It might take a few minutes to fully create.
 
 To use this code, follow these steps:
 
-1. Open a terminal window.
-2. Run the following commands
+1. Run the following commands
 
-```
-terraform init
-```
 ```
 terraform plan
 ```

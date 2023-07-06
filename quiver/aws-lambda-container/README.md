@@ -13,7 +13,7 @@ url: "/blog/aws-lambda-container"
 
 # **AWS Lambda Containers: A Game-Changer for Scalable and Efficient Serverless Applications**
 
-Simplify the deployment of Docker containers as Lambda functions on AWS using Terraform. This code snippet creates a Lambda function module, and deploys a container image. Streamline your AWS Lambda deployment process and unleash the power of containerization with this efficient Terraform solution.
+🚀AWS Lambda with containers merges the advantages of serverless computing and containerization. Developers can package their applications into containers, enjoying benefits like scalability, cost-effectiveness, and simplified management. Automatic scaling and reduced operational burden empower developers to concentrate on coding and delivering exceptional solutions. 🐳⚙️
 
 ## **Table of contents**
 
@@ -37,9 +37,9 @@ Simplify the deployment of Docker containers as Lambda functions on AWS using Te
 ## **Requirements**
 | Name     | Version  |
 |----------|----------|
-|[terraform](#requirement) | >= 1.0 |
-|[aws-cli](#requirement)   | >= 2.0 |
-|[docker](#requirement)   | >= 24.0 |
+|[Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) | >= 1.0 |
+|[AWS CLI](https://github.com/aws/aws-cli)  | >= 2.0 |
+|[Docker](https://docs.docker.com/engine/install/)   | >= 24.0 |
 
 ## **Installation**
 

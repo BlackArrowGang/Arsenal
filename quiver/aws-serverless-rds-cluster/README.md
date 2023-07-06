@@ -1,7 +1,7 @@
 <!-- 
 ---
 type: "post"
-title: "Scalable Database Cluster: AWS Aurora Serverless"
+title: "RDS Serverless Cluster: Available, Reliable, Financiable"
 topic: "Provisioning"
 date: "2023-06-26T15:30:00-07:00"
 author: "Fernando Reyes"
@@ -11,9 +11,18 @@ url: "/blog/aws-serverless-rds-cluster"
 ---
 -->
 
-# **Scalable Database Cluster: AWS Aurora Serverless**
+# **RDS Serverless Cluster: Available, Reliable, Financiable**
 
-Discover how Terraform, a powerful infrastructure-as-code tool, simplifies the process of deploying infrastructure on AWS. This blog post provides a concise overview of using Terraform to provision an AWS Serverless database cluster, and secure VPN access. 
+✨Aurora Serverless databases offer flexible scaling, automatic maintenance, and cost savings. They adapt resources in real-time, reduce expenses by pausing during idle periods, and ensure high availability. With simplified setup and management, developers can focus on their applications without worrying about capacity planning. 💰🔄
+
+## **Table of contents**
+
+* [Use Cases](#use-cases)
+* [Requirements](#requirements)
+* [Installation](#installation)
+* [Usage](#usage)
+* [How It Works](#how-it-works)
+* [Support](#support)
 
 ![RDS Cluster Diagram](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/main/quiver/aws-serverless-rds-cluster/diagrams/aws-serverless-rds-cluster-diagram.png)
 
@@ -26,6 +35,62 @@ The AWS RDS Aurora database cluster setup can be utilized in various scenarios, 
 
 3. **Multi-Region Data Replication**: RDS Aurora supports cross-region replication, enabling you to replicate your database across multiple AWS regions. This provides disaster recovery capabilities and allows you to serve your customers from different geographical locations with low latency.
 
+
+## **Requirements**
+| Name     | Version  |
+|----------|----------|
+|[Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) | >= 1.0 |
+|[AWS CLI](https://github.com/aws/aws-cli)  | >= 2.0 |
+|[OpenVPN](https://openvpn.net/community-downloads/)   | >= 2.5 |
+## **Installation**
+
+Clone the repository
+```
+git clone https://github.com/BlackArrowGang/Arsenal.git
+```
+Go to the solution directory
+```
+cd /Arsenal/quiver/aws-serverless-rds-cluster
+```
+Install terraform modules
+```
+terraform init
+```
+
+## **Usage**
+
+**Note:** It might take a few minutes to fully create.
+
+To use this code, follow these steps:
+
+
+**Modify Code**
+   - Set the desired profile, region, vpc and database config on the locals section inside the main.tf file
+   - Add your VPN server and client certificate ARN's.
+
+**Terraform Setup**
+
+1. Run the following commands
+
+```
+terraform plan
+```
+```
+terraform apply
+```
+**Connect to VPN**
+
+- Desktop Client
+    1. Refer to this <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/mutual.html" target="_blank">AWS</a>
+   documentation for detailed instructions on setting up the vpn certificates on your account.
+    2. Then go to the section named "Exporting and configuring the VPN client configuration file" of this other <a href="https://aws.amazon.com/blogs/database/accessing-an-amazon-rds-instance-remotely-using-aws-client-vpn/" target="_blank">AWS</a> documentation to connect with your vpn client.
+- Linux Command
+    ```
+    sudo openvpn --config config.ovpn
+    ```
+**Connect To Database Cluster**
+
+- Now that you are connected to the VPN, you have access to the database cluster and can connect to it, be sure to connect via the url endpoint of any database instance 
 
 ## **How It Works**
 

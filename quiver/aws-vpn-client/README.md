@@ -13,7 +13,7 @@ url: "/blog/aws-vpn-client"
 
 # **Simplify Remote Access: Effective AWS Client VPN Endpoint Setup**
 
-AWS Client VPN Endpoint is a powerful solution that enables seamless and secure connectivity between remote users and AWS resources. With easy management and configuration, it provides a user-friendly experience for accessing sensitive data and applications.
+🔒 Connect remote users to AWS resources securely and seamlessly with AWS Client VPN Endpoint. Easily manage and configure it for easy access to sensitive data and applications. Enjoy a user-friendly experience. 💻🔐
 
 ## **Table of contents**
 
@@ -38,9 +38,9 @@ The AWS VPN setup can be utilized in various scenarios, including:
 ## **Requirements**
 | Name     | Version  |
 |----------|----------|
-|[terraform](#requirement) | >= 1.0 |
-|[aws-cli](#requirement)   | >= 2.0 |
-|[openvpn](#requirement)   | >= 2.5 |
+|[Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) | >= 1.0 |
+|[AWS CLI](https://github.com/aws/aws-cli)  | >= 2.0 |
+|[OpenVPN](https://openvpn.net/community-downloads/)   | >= 2.5 |
 
 ## **Installation**
 Install a OpenVPN client

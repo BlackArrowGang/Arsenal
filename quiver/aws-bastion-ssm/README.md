@@ -13,8 +13,16 @@ url: "/blog/aws-bastion-ssm"
 
 # **Effortless AWS Bastion Setup**
 
-## **Description**
-This Terraform provisions the infrastructure for a fully managed bastion. The bastion serves as a secure entry point to access your resources within a Virtual Private Cloud (VPC). By leveraging SSM, you can establish a secure and controlled connection to your resources without the need for a public IP or opening inbound SSH ports.
+An AWS EC2 Bastion instance enhances security and enables remote access to your cloud infrastructure. 🔒 It safeguards data, prevents unauthorized access, and simplifies remote administration, ensuring efficient control and monitoring of your network. 🚀💻
+
+## **Table of contents**
+
+* [Use Cases](#use-cases)
+* [Usage](#usage)
+* [How It Works](#how-it-works)
+* [Support](#support)
+
+![Bastion Diagram](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/main/quiver/aws-bastion-ssm/diagrams/bastion-diagram.png)
 
 ## **Use Cases**
 The Terraform bastion setup can be utilized in various scenarios, including:
@@ -25,8 +33,44 @@ The Terraform bastion setup can be utilized in various scenarios, including:
 
 3. **Enhanced Security**: Restrict access to resources by leveraging security groups to control inbound and outbound traffic between the bastion host and other resources. This helps protect sensitive data and ensures that only authorized communication is allowed.
 
-## **Diagram**
-![Bastion Diagram](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/main/quiver/aws-bastion-ssm/diagrams/bastion-diagram.png)
+
+## **Requirements**
+| Name     | Version  |
+|----------|----------|
+|[Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) | >= 1.0 |
+|[AWS CLI](https://github.com/aws/aws-cli)   | >= 2.0 |
+|[Session Manager Plugin](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html)  | >= 1.0 |
+
+
+## **Installation**
+
+Clone the repository
+```
+git clone https://github.com/BlackArrowGang/Arsenal.git
+```
+Go to the solution directory
+```
+cd /Arsenal/quiver/aws-bastion-ssm
+```
+Install terraform modules
+```
+terraform init
+```
+
+## **Usage**
+
+**Note:** It might take a few minutes to fully create.
+
+To use this code, follow these steps:
+
+1. Run the following commands
+
+```
+terraform plan
+```
+```
+terraform apply
+```
 
 ## **How It Works**
 
