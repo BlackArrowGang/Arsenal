@@ -1,6 +1,40 @@
-provider "aws" {
+locals{
   profile = "default"
   region  = "us-east-2"
+
+  database_name              = "database-cluster"
+  database_engine            = "aurora-postgresql"
+  database_engine_mode       = "provisioned"
+  database_engine_version    = "14.6"
+
+  database_user = "root"
+  database_pass = "admin123"
+
+  database_instances = {
+    one = {}
+    two = {}
+  }
+
+  serverless_scaling = {
+    min_capacity = 0.5
+    max_capacity = 1
+  }
+
+  resource_port  = "5432"
+  vpc_cidr_block = "142.32.0.0/16"
+  vpn_cidr_block = "192.168.128.0/22"
+  
+  availability_zones = ["us-east-2a", "us-east-2b"]
+  private_subnets    = ["142.32.1.0/24", "142.32.2.0/24"]
+  database_subnets   = ["142.32.3.0/24", "142.32.4.0/24"]
+
+  server_certificate = "<server-cert-arn>"
+  client_certificate = "<client-cert-arn>"
+}
+
+provider "aws" {
+  profile = local.profile
+  region  = local.region
 }
 
 module "vpc" {
@@ -8,11 +42,11 @@ module "vpc" {
   version = "5.0.0"
 
   name   = "database-cluster-vpc"
-  azs    = ["us-east-2a", "us-east-2b"]
+  azs    = local.availability_zones
 
-  cidr   = "142.32.0.0/16"
-  private_subnets = ["142.32.1.0/24", "142.32.2.0/24"]
-  database_subnets = ["142.32.3.0/24", "142.32.4.0/24"]
+  cidr   = local.vpc_cidr_block
+  private_subnets = local.private_subnets
+  database_subnets = local.database_subnets
 }
 
 module "rds_proxy" {
@@ -56,26 +90,20 @@ module "rds_aurora" {
   source  = "terraform-aws-modules/rds-aurora/aws"
   version = "8.3.1"
 
-  name              = "database-cluster"
-  engine            = "aurora-postgresql"
-  engine_mode       = "provisioned"
-  engine_version    = "14.6"
+  name              = local.database_name
+  engine            = local.database_engine
+  engine_mode       = local.database_engine_mode
+  engine_version    = local.database_engine_version
 
-  master_username   = "root"
-  master_password   = "admin123"
+  master_username   = local.database_user
+  master_password   = local.database_pass
   manage_master_user_password = false
 
   availability_zones = [module.vpc.azs[0],module.vpc.azs[1]]
   instance_class = "db.serverless"
-  instances = {
-    one = {}
-    two = {}
-  }
+  instances = local.database_instances
 
-  serverlessv2_scaling_configuration = {
-    min_capacity = 0.5
-    max_capacity = 1
-  }
+  serverlessv2_scaling_configuration = local.serverless_scaling
 
   vpc_id                 = module.vpc.vpc_id
   db_subnet_group_name   = module.vpc.database_subnet_group_name
@@ -123,8 +151,8 @@ module "rds_access_security_group" {
 
   ingress_with_self = [
     {
-      from_port = 5432
-      to_port   = 5432
+      from_port = local.resource_port
+      to_port   = local.resource_port
       protocol  = 6
       self      = true
     }
@@ -133,8 +161,8 @@ module "rds_access_security_group" {
   #Allow access from vpn to rds or other resource inside private subnet
   egress_with_self = [
     {
-      from_port = 5432
-      to_port   = 5432
+      from_port = local.resource_port
+      to_port   = local.resource_port
       protocol  = 6
       self      = true
     }
@@ -158,8 +186,8 @@ module "resource_access_security_group" {
 
   egress_with_self = [
     {
-      from_port = 5432
-      to_port   = 5432
+      from_port = local.resource_port
+      to_port   = local.resource_port
       protocol  = 6
       self      = true
     }
@@ -191,16 +219,16 @@ resource "aws_secretsmanager_secret_version" "root" {
 
 resource "aws_ec2_client_vpn_endpoint" "client_vpn" {
   description            = "VPN Endpoint"
-  server_certificate_arn = "arn:aws:acm:us-east-2:401745644029:certificate/12fdf563-2d82-4907-ae5e-bf41dfb8bc78"
+  server_certificate_arn = local.server_certificate
 
-  client_cidr_block      = "192.168.128.0/22"
+  client_cidr_block      = local.vpn_cidr_block
   split_tunnel           = "true"
   vpc_id                 = module.vpc.vpc_id
   security_group_ids     = [module.vpn_access_security_group.security_group_id,module.resource_access_security_group.security_group_id]
 
   authentication_options {
     type                       = "certificate-authentication"
-    root_certificate_chain_arn = "arn:aws:acm:us-east-2:401745644029:certificate/f91098bc-d25f-465d-ba62-28f5b9bb2bd7"
+    root_certificate_chain_arn = local.client_certificate
   }
 
   connection_log_options {

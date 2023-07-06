@@ -13,7 +13,7 @@ url: "/blog/aws-rds-proxy"
 
 # **AWS RDS Proxy: The Key to Flexibility, Security, and High Performance**
 
-🛰️AWS RDS Proxy makes managing and scaling databases on Amazon RDS easier. It boosts performance, handles failovers smoothly, and simplifies database tasks. With connection pooling, it optimizes resource usage, ensuring efficient operations and better security. 
+🔄AWS RDS Proxy makes managing and scaling databases on Amazon RDS easier. It boosts performance, handles failovers smoothly, and simplifies database tasks. With connection pooling, it optimizes resource usage, ensuring efficient operations and better security.⚡️🔒 
 
 ## **Table of contents**
 
@@ -38,6 +38,7 @@ url: "/blog/aws-rds-proxy"
 |----------|----------|
 |[Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) | >= 1.0 |
 |[AWS CLI](https://github.com/aws/aws-cli)  | >= 2.0 |
+|[OpenVPN](https://openvpn.net/community-downloads/)   | >= 2.5 |
 
 ## **Installation**
 
