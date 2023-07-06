@@ -15,7 +15,7 @@ url: "/blog/aws-serverless-rds-cluster"
 
 Discover how Terraform, a powerful infrastructure-as-code tool, simplifies the process of deploying infrastructure on AWS. This blog post provides a concise overview of using Terraform to provision an AWS Serverless database cluster, and secure VPN access. 
 
-![RDS Cluster Diagram](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/fe605097ab64a4dd36d090593ee8f42eb55f64bc/quiver/aws-rds-cluster/diagrams/aws-serverless-rds-cluster-diagram.png)
+![RDS Cluster Diagram](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/main/quiver/aws-serverless-rds-cluster/diagrams/aws-serverless-rds-cluster-diagram.png)
 
 ## **Use Cases**
 The AWS RDS Aurora database cluster setup can be utilized in various scenarios, including:
