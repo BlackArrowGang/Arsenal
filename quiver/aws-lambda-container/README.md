@@ -24,7 +24,7 @@ Simplify the deployment of Docker containers as Lambda functions on AWS using Te
 * [How It Works](#how-it-works)
 * [Support](#support)
 
-![Lambda Container Diagram](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/dev/quiver/aws-lambda-container/diagrams/aws-lambda-container-diagram.png)
+![Lambda Container Diagram](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/main/quiver/aws-lambda-container/media/aws-lambda-container-diagram.png)
 
 ## **Use Cases**
 1. **Serverless Microservices:** Deploy Docker containers as Lambda functions using Terraform to create serverless microservices architectures. Benefit from independent scaling and optimized resource utilization by encapsulating specific functionalities or services within each containerized Lambda function.
@@ -64,9 +64,9 @@ To use this code, follow these steps:
   1. Create a private repository
       - Refer to this <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-create.html" target="_blank">AWS documentation</a>
   2. Click on the View push commands button
-      ![Private repositories page](media/image_01.png)
+      ![Private repositories page](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/main/quiver/aws-lambda-container/media/image_01.png)
   3. Push your image to the repository
-      ![Push image to repo commands](media/image_02.png)
+      ![Push image to repo commands](https://raw.githubusercontent.com/BlackArrowGang/Arsenal/main/quiver/aws-lambda-container/media/image_02.png)
 
 **Note:** Make sure the image you want to upload has an appropiate base image to work on a lambda function, you can search in the <a href="https://gallery.ecr.aws/" target="_blank">ECR Public Gallery</a>.
 
@@ -103,7 +103,7 @@ terraform apply
 
 If you encounter any issues or need assistance setting things up, Hire us and we can do it for you. 
 
-Want to try things for yourself?, checkout our github repository [Arsenal](https://github.com/BlackArrowGang/Arsenal/tree/dev/quiver/aws-lambda-container).
+Want to try things for yourself?, checkout our github repository [Arsenal](https://github.com/BlackArrowGang/Arsenal/tree/main/quiver/aws-lambda-container).
 
 To get started, you can visit our website [blackarrowgang.com](https://blackarrowgang.com) to explore our services and schedule a meeting with our team. We are committed to providing you with the necessary support and guidance.
 

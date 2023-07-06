@@ -23,8 +23,8 @@ The quiver folder in this repository serves as a collection of various platform 
 
 ### Security
 * AWS
-    - [aws-vpn-client](https://github.com/BlackArrowGang/Arsenal/tree/dev/quiver/aws-vpn-client)
-    - [aws-bastion-setup](https://github.com/BlackArrowGang/Arsenal/tree/dev/quiver/aws-bastion-setup)
+    - [aws-vpn-client](https://github.com/BlackArrowGang/Arsenal/tree/main/quiver/aws-vpn-client)
+    - [aws-bastion-setup](https://github.com/BlackArrowGang/Arsenal/tree/main/quiver/aws-bastion-setup)
 
 ### Process Automation
 * Github Actions

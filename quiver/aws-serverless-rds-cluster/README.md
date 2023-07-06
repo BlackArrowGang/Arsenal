@@ -65,7 +65,7 @@ The AWS RDS Aurora database cluster setup can be utilized in various scenarios, 
 ## **Support**
 If you encounter any issues or need assistance setting things up, Hire us and we can do it for you. 
 
-Want to try things for yourself?, checkout our github repository [Arsenal](https://github.com/BlackArrowGang/Arsenal/tree/dev/quiver/aws-serverless-rds-cluster).
+Want to try things for yourself?, checkout our github repository [Arsenal](https://github.com/BlackArrowGang/Arsenal/tree/main/quiver/aws-serverless-rds-cluster).
 
 To get started, you can visit our website [blackarrowgang.com](https://blackarrowgang.com) to explore our services and schedule a meeting with our team. We are committed to providing you with the necessary support and guidance.
 
