@@ -41,7 +41,7 @@ The AWS RDS Aurora database cluster setup can be utilized in various scenarios, 
 |----------|----------|
 |[Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) | >= 1.0 |
 |[AWS CLI](https://github.com/aws/aws-cli)  | >= 2.0 |
-
+|[OpenVPN](https://openvpn.net/community-downloads/)   | >= 2.5 |
 ## **Installation**
 
 Clone the repository
@@ -63,6 +63,13 @@ terraform init
 
 To use this code, follow these steps:
 
+
+**Modify Code**
+   - Set the desired profile, region, vpc and database config on the locals section inside the main.tf file
+   - Add your VPN server and client certificate ARN's.
+
+**Terraform Setup**
+
 1. Run the following commands
 
 ```
@@ -71,7 +78,19 @@ terraform plan
 ```
 terraform apply
 ```
+**Connect to VPN**
 
+- Desktop Client
+    1. Refer to this <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/mutual.html" target="_blank">AWS</a>
+   documentation for detailed instructions on setting up the vpn certificates on your account.
+    2. Then go to the section named "Exporting and configuring the VPN client configuration file" of this other <a href="https://aws.amazon.com/blogs/database/accessing-an-amazon-rds-instance-remotely-using-aws-client-vpn/" target="_blank">AWS</a> documentation to connect with your vpn client.
+- Linux Command
+    ```
+    sudo openvpn --config config.ovpn
+    ```
+**Connect To Database Cluster**
+
+- Now that you are connected to the VPN, you have access to the database cluster and can connect to it, be sure to connect via the url endpoint of any database instance 
 
 ## **How It Works**
 
