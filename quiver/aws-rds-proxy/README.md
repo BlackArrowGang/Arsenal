@@ -7,7 +7,7 @@ date: "2023-07-01T15:30:00-07:00"
 author: "Fernando Reyes"
 time: "2 min read"
 description: "Boost your Amazon RDS databases with AWS RDS Proxy! Experience unrivaled scalability, availability, and security. With automatic connection pooling and failover mechanisms, managing your databases becomes a breeze. "
-url: "/services/aws-rds-proxy"
+url: "/blog/aws-rds-proxy"
 ---
 -->
 
