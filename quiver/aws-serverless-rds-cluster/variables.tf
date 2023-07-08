@@ -1,11 +1,3 @@
-variable "provider_profile" {
-    type = string
-}
-
-variable "provider_region" {
-    type = string
-}
-
 variable "database_name" {
   type    = string
 }
@@ -35,31 +27,17 @@ variable "database_instances" {
 }
 
 variable "serverless_scaling" {
-  type = map
-  default = {
-    min_capacity = 0.5
-    max_capacity = 1
-  }
-}
-
-variable "resource_port" {
-  type    = string
-}
-
-variable "vpc_cidr_block" {
-  type    = string
-}
-
-variable "vpn_cidr_block" {
-  type    = string
+  type    = map
 }
 
 variable "availability_zones" {
-  type    = list(string)
+    type = list
+    description = "Availability zones"
 }
 
 variable "private_subnets" {
-  type    = list(string)
+  type = list
+  description = "List of subnets inside the VPC range"
 }
 
 variable "database_subnets" {
@@ -67,9 +45,39 @@ variable "database_subnets" {
 }
 
 variable "server_certificate" {
-  type    = string
+    type = string
+    description = "ARN of the server certificate for the VPN"
 }
 
 variable "client_certificate" {
-  type    = string
+    type = string
+    description = "ARN of the client certificate for the VPN"
+}
+
+variable "resource_port" {
+    type = number
+    description = "Resource port to access from VPN"
+}
+
+variable "vpc_id" {
+    type = string
+    description = "VPC id"
+}
+
+variable "vpc_cidr_block" {
+    type = string
+    description = "CIDR block for VPC"
+}
+
+variable "vpn_cidr_block" {
+    type = string
+    description = "CIDR block for VPN"
+}
+
+variable "database_subnet_group_name" {
+    type = string
+}
+
+variable "private_subnets_cidr_blocks" {
+    type = list
 }
