@@ -150,7 +150,6 @@ resource "aws_ec2_client_vpn_endpoint" "client_vpn" {
   }
 }
 
-# Assign IP range to vpn
 resource "aws_ec2_client_vpn_authorization_rule" "authroize_vpn_vpc" {
   client_vpn_endpoint_id = aws_ec2_client_vpn_endpoint.client_vpn.id
   target_network_cidr    = module.vpc.vpc_cidr_block
