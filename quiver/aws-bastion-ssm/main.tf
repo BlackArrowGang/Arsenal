@@ -1,20 +1,7 @@
-locals {
-  #aws
-  aws_region      = "us-east-2"  # Specify the AWS region where the infrastructure will be deployed
-  aws_profile_name    = "default" # Specify the AWS profile to use
-  #vpc
-  vpc_cidr_block  = "142.32.0.0/16"  # Define the CIDR block for the VPC
-  vpc_name        = "BastionVPC" # Provide a name for the VPC
-  #ec2
-  ami_id          = "ami-01107263728f3bef4"  # Specify the ID of the AMI
-  instance_type   = "t2.micro"  # Specify the type of the EC2 instance
-  ec2_tag_name    = "Bastion EC2" # Specify a name tag for the EC2 instance
-}
-
 # Provider info
 provider "aws" {
-  region  = local.aws_region
-  profile = local.aws_profile_name 
+  region  = var.aws_region
+  profile = var.aws_profile_name 
 }
 
 # Get default VPC
@@ -25,19 +12,19 @@ data "aws_vpc" "default" {
 # module "vpc" {
 #   source  = "terraform-aws-modules/vpc/aws"
 #   version = "5.0.0"
-#   name    = local.vpc_name  
-#   cidr    = local.vpc_cidr_block 
-#   azs              = ["${local.aws_region}a", "${local.aws_region}b"]  # Specify the availability zones for the VPC
-#   private_subnets  = [cidrsubnet(local.vpc_cidr_block, 8, 1), cidrsubnet(local.vpc_cidr_block, 8, 2)]  # Define the private subnets within the VPC
+#   name    = var.vpc_name  
+#   cidr    = var.vpc_cidr_block 
+#   azs              = ["${var.aws_region}a", "${var.aws_region}b"]  # Specify the availability zones for the VPC
+#   private_subnets  = [cidrsubnet(var.vpc_cidr_block, 8, 1), cidrsubnet(var.vpc_cidr_block, 8, 2)]  # Define the private subnets within the VPC
 # }
 
 # Create EC2 instance with role and security groups
 module "ec2_instance" {
   source                  = "terraform-aws-modules/ec2-instance/aws"
-  ami                     = local.ami_id  
-  instance_type           = local.instance_type  
+  ami                     = var.ami_id  
+  instance_type           = var.instance_type  
   tags = {
-    Name                  = local.ec2_tag_name 
+    Name                  = var.ec2_tag_name 
   }
   vpc_security_group_ids  = [
     module.security_group_bastion_rds.security_group_id,
