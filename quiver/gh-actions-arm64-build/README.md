@@ -14,7 +14,7 @@ url: "/blog/gh-actions-arm64-build"
 # **ARM64 Architecture Build:**
 
 <p align="center">
-  <img src="media\banner.jpg" alt="ARM64 Architecture">
+  <img src="media\banner.jpg" width="500px" alt="ARM64 Architecture">
   <!-- https://raw.githubusercontent.com/BlackArrowGang/Arsenal/main/quiver/gh-actions-arm64-build/media/banner.jpg -->
 </p>
 
@@ -22,29 +22,30 @@ In the ever-evolving world of computing, ARM64 processors have emerged as game-c
 
 ARM64 processors have become the preferred choice for enhancing efficiency and innovation in various computing devices.🔧🚀
 
-## **Why ARM64?**
-
-A key advantage is their ability to deliver superior performance. these processors can handle large amounts of data and perform complex tasks quickly and accurately. This translates into faster and more responsive computing experiences.⚡️💪🏼
-
-## **How does it differ from x86 architecture?**
-
 ## **Table of contents**
 
-* [Use Cases](#use-cases)
+* [Why Choose ARM64?](#why-choose-arm64)
 * [Requirements](#requirements)
 * [Installation](#installation)
 * [Usage](#usage)
 * [How It Works](#how-it-works)
 * [Support](#support)
 
+## **Why Choose ARM64?**
+
+- **Cost Optimization:** ARM64-based instances offer cost savings compared to x86-based instances due to their power-efficient design, reducing energy consumption and infrastructure costs.💰✅
+
+- **Performance:** ARM64 processors, like Graviton, can deliver excellent performance for certain types of workloads. They are particularly well-suited for scale-out applications, such as web servers, containerized microservices, and caching fleets.⚡️💪🏼s
+
+## **How does it differ from x86 architecture?**
+
 ## **Use Cases**
-The AWS VPN setup can be utilized in various scenarios, including:
 
-1. **Remote Access (Bastion Alternative)**: Provide a secure alternative to a bastion by enabling authorized users to securely connect with high availability to AWS resources through a virtual private network (VPN) from remote locations.
+1. 
 
-2. **Site-to-Site Connectivity**: Establish secure connections between multiple on-premises data centers or branch offices and the AWS cloud, enabling seamless and protected communication between these environments, including multi-region deployments.
+2. **Scale-out Workloads:** ARM64 instances excel in scale-out workloads, where you distribute the workload across multiple instances. Web servers, microservices, and containerized applications are examples of workloads that can benefit from ARM64's ability to efficiently handle parallel processing and high traffic volumes.
 
-3. **Third-Party Vendor Access**: Many enterprises work with external vendors or consultants who require access to specific resources for collaboration or system integration. Cloud network security plays a vital role in this scenario. This VPN can provide a secure and controlled connection for these vendors to access the necessary resources without exposing the internal network to external threats.
+3. **Third-Party Vendor Access**: 
 
 ## **Requirements**
 | Name     | Version  |
@@ -62,7 +63,7 @@ terraform apply
 ## **How It Works**
 
 ## **Support**
-If you encounter any issues or have questions related to this AWS VPN setup with Terraform, or need assistance setting up the VPN or any other related services, Hire us and we can do it for you. 
+If you encounter any issues or have questions related to this AWS VPN setup with Terraform, or need assistance setting up the VPN or any other related services, Hire us and we can do it for you.
 
 To get started, you can visit our website [blackarrowgang.com](https://blackarrowgang.com) to explore our services and schedule a meeting with our team. We are committed to providing you with the necessary support and guidance to ensure a successful implementation of your VPN infrastructure.
 
