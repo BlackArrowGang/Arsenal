@@ -12,7 +12,6 @@ RUN yarn build
 
 RUN yarn install --production
 
-RUN mv ./src/index.js ./dist \
-    && mv ./node_modules ./dist \
+RUN mv ./node_modules ./dist \
     && cd ./dist \
     && zip -r build.zip .
