@@ -3,7 +3,7 @@
 type: "post"
 title: "Maximizing Performance and Efficiency"
 topic: "Process Automation"
-date: "2023-07-09T13:30:00-07:00"
+date: "2023-07-10T13:30:00-07:00"
 author: "Fernando Reyes"
 time: "4 min read"
 description: "Accelerate your software development process, ensure compatibility, and unleash the full potential of ARM64 architecture."
@@ -65,7 +65,7 @@ x86 processors have a longer development history than ARM, they have a larger in
 
 ## **Usage**
 
-To have access to the sample code go to our <a href="https://github.com/BlackArrowGang/Arsenal/tree/main/quiver/gh-actions-arm64-build" target="_blank">Arsenal</a> repository where you will find all the necessary files for this javascript example.
+To have access to the sample code go to our [Arsenal](https://github.com/BlackArrowGang/Arsenal/tree/main/quiver/gh-actions-arm64-build) repository where you will find all the necessary files for this javascript example.
 
 ### Add Files
 1. Inside the repository that you want to build in ARM64, create two directories one named `.github` and inside another one named `workflows`
